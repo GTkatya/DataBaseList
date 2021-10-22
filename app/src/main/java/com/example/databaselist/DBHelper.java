@@ -12,7 +12,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String TABLE_PERSONS = "persons";
     public static final String KEY_ID = "_id";
     public static final String KEY_NAME = "name";
-    public static final String KEY_MAIL = "null";
+    public static final String KEY_MAIL = "mail";
 
 
     public DBHelper(@Nullable Context context) {
@@ -22,12 +22,12 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table" + TABLE_PERSONS + "(" + KEY_ID + "integer primary key," + KEY_NAME + "text," + KEY_MAIL + "text" + ")");
+        db.execSQL("create table " + TABLE_PERSONS + "(" + KEY_ID + "integer primary key," + KEY_NAME + "text," + KEY_MAIL + "text" + ")");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("drop table if exists" + TABLE_PERSONS);
+        db.execSQL("drop table if exists " + TABLE_PERSONS);
         onCreate(db);
     }
 }
